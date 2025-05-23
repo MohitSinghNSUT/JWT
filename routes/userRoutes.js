@@ -1,5 +1,10 @@
 const express = require("express");
 const handleSignUp = require("../controllers/handleUserSignUp");
+const handleLogin = require("../controllers/handleUserLogin");
+const verifyToken = require("../Middleware/verifyToken");
+const booking = require("../controllers/Booking");
 const routes = express.Router();
-routes.get("/signup", handleSignUp);
+routes.post("/signup", handleSignUp);
+routes.post("/login", handleLogin);
+routes.post("/booking", verifyToken, booking);
 module.exports = routes;

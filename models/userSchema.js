@@ -11,5 +11,5 @@ const person = {
   },
 };
 const personSchema = new mongoose.Schema(person, { timestamps: true });
-const personModel = mongoose.Model("user", personSchema);
+const personModel = mongoose.model("users", personSchema);
 module.exports = personModel;

@@ -1,0 +1,18 @@
+services:
+  node:
+    image: node
+    build: .
+    ports:
+      -"3000":"3000"
+    environment:
+      MONGO_URL: mongodb://mongoadmin:secret123@mongo:27017
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: mongoadmin
+      MONGO_INITDB_ROOT_PASSWORD: secret123
